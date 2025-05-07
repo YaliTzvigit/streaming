@@ -11,7 +11,7 @@ function App() {
     <Router>
       <nav className="nav">
           <Link className="navbar-brand logobrand" to="/">EduStream</Link>
-            <div className='navi'>
+          <div className='navi'>
               <Link class='nav-items' to="/"> Accueil</Link>
               <Link class='nav-items' id='bill' to="/subscribe"> Abonnement</Link>
               <Link class='nav-items' id='auth' to="/createaccount"> Créer un compte *</Link>

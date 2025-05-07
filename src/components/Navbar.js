@@ -6,7 +6,7 @@ function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
       <div className="container">
-        <Link className="navbar-brand" to="/HomePage">MiniEduStream</Link>
+        <Link className="navbar-brand" to="/">MiniEduStream</Link>
       </div>
     </nav>
   );

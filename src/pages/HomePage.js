@@ -84,7 +84,7 @@ function HomePage() {
             </div>
           ))
         ) : (
-          <p className="text-center">Aucune vidéo trouvée 😥</p>
+          <p className="text-center nonecard">Aucune vidéo trouvée. </p>
         )}
       </div>
 
