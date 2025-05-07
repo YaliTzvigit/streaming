@@ -16,11 +16,11 @@ function SubscribePage() {
 
   return (
     <div className="container py-5">
-      <h1 className="mb-4 text-center">Abonnez-vous 📩</h1>
+      <h1 className="mb-4 text-center text-muted">S'abonner </h1>
 
       {success ? (
         <div className="alert alert-success text-center">
-          Merci pour votre abonnement ! 🎉
+          Merci pour votre abonnement !
         </div>
       ) : (
         <form onSubmit={handleSubmit} className="mx-auto" style={{ maxWidth: '500px' }}>
@@ -31,12 +31,12 @@ function SubscribePage() {
               className="form-control"
               id="email"
               required
-              placeholder="Entrez votre email..."
+              placeholder="edustream@example.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
-          <button type="submit" className="btn btn-primary w-100">
+          <button id='sabonner' type="submit" className="btn btn-primary w-100">
             S'abonner
           </button>
         </form>

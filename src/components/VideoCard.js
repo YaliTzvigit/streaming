@@ -1,3 +1,0 @@
-
-/* VideoCard du oué */
-

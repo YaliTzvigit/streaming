@@ -3,20 +3,23 @@
 import { useState } from 'react';
 import videos from '../data/videos';
 import { Link } from 'react-router-dom';
+/* Font awesome */
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 function HomePage() {
   const [search, setSearch] = useState('');
-  const [category, setCategory] = useState('Toutes');
+  const [category, setCategory] = useState('Tout voir');
   const [currentPage, setCurrentPage] = useState(1);
 
   const videosPerPage = 6;
 
-  const categories = ['Toutes', ...new Set(videos.map(v => v.category))];
+  const categories = ['Tout voir', ...new Set(videos.map(v => v.category))];
 
   const filteredVideos = videos.filter((video) => {
     const matchSearch = video.title.toLowerCase().includes(search.toLowerCase()) ||
                         video.category.toLowerCase().includes(search.toLowerCase());
-    const matchCategory = category === 'Toutes' || video.category === category;
+    const matchCategory = category === 'Tout voir' || video.category === category;
     return matchSearch && matchCategory;
   });
 
@@ -32,22 +35,27 @@ function HomePage() {
 
   return (
     <div className="container py-5">
-      <h1 className="mb-4 text-center">Bienvenue sur MiniEduStream 📚</h1>
+      <h1 className="mb-4 text-center">EduStream 📚</h1>
+      <p className="centerp text-muted"> Streaming éducatif à petite échelle. </p>
+
+      <br />
 
       {/* Recherche et filtre */}
       <div className="row mb-4">
-        <div className="col-md-6">
+        <div className="col-md-6 search-container">
           <input
             type="text"
-            className="form-control"
-            placeholder="Rechercher une vidéo..."
+            className="form-control searchvid"
+            placeholder="Trouver une vidéo ..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
+          <FontAwesomeIcon icon={faSearch} className='search-icon' />
         </div>
+        {/* select */}
         <div className="col-md-6">
           <select
-            className="form-select"
+            className="form-select searchvid"
             value={category}
             onChange={(e) => setCategory(e.target.value)}
           >
@@ -68,7 +76,7 @@ function HomePage() {
                 <div className="card-body d-flex flex-column">
                   <h5 className="card-title">{video.title}</h5>
                   <p className="card-text">{video.category}</p>
-                  <Link to={`/video/${video.id}`} className="btn btn-primary mt-auto">
+                  <Link to={`/video/${video.id}`} className="btn btn-primary mt-auto seevid">
                     Voir la vidéo
                   </Link>
                 </div>
