@@ -52,7 +52,7 @@ const videos = [
     },
      {
       id:6,
-      title: "Coding React/JS!",
+      title: "Coder en React",
       category: "Développement Web",
       thumbnail: img6,
       url: "https://www.youtube.com/watch?v=_n_UVPKC_AE&t=80s",

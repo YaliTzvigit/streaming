@@ -36,7 +36,7 @@ function HomePage() {
   return (
     <div className="container py-5">
       <h1 className="mb-4 text-center">EduStream 📚</h1>
-      <p className="centerp text-muted"> Streaming éducatif à petite échelle. </p>
+      <p className="centerp text-muted"> Plateforme de streaming éducatif à petite échelle. </p>
 
       <br />
 

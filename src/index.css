@@ -16,7 +16,7 @@ body {
   align-items: center;
   justify-content: space-around;
   display: flex;
-  padding: 20px;
+  padding: 13px;
   top: 0;
   gap: 80px;
   position : sticky;
@@ -72,7 +72,7 @@ body {
    padding: 17px;
    font-size: 1.2rem;
    border-radius: 50px;
-   border: 1px solid rgb(145, 100, 11);
+   border: 1px solid rgba(9, 146, 94, 0.943)
 }
 
 .searchvid:focus {
@@ -90,7 +90,7 @@ body {
   top: 50%;
   right: 30px; /* Ajuste la position à droite */
   transform: translateY(-50%);
-  color: #750; /* Couleur de l'icône */
+  color: #555; /* Couleur de l'icône */
   font-size: 20px;
 }
 
