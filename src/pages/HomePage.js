@@ -35,8 +35,8 @@ function HomePage() {
 
   return (
     <div className="container py-5">
-      <h1 className="mb-4 text-center">EduStream 📚</h1>
-      <p className="centerp text-muted"> Plateforme de streaming éducatif à petite échelle. </p>
+      <h1 className="mb-4 text-center">Bienvenue sur EduStream 📚</h1>
+      <p className="centerp text-muted"> Mini plateforme de streaming éducatif. </p>
 
       <br />
 
@@ -89,7 +89,7 @@ function HomePage() {
       </div>
 
       {/* Pagination */}
-      <nav className="d-flex justify-content-center mt-4">
+      <nav className="d-flex justify-content-center mt-5">
         <ul className="pagination">
           {Array.from({ length: totalPages }, (_, index) => (
             <li key={index} className={`page-item ${currentPage === index + 1 ? 'active' : ''}`}>
@@ -100,6 +100,17 @@ function HomePage() {
           ))}
         </ul>
       </nav>
+
+      {/* Description d'EduStream */}
+      <div className="mt-5 pt-3 border-top text-center text-muted">
+        <br />
+        <p>
+          <strong>À propos d'EduStream</strong><br /><br />
+          EduStream est une mini-plateforme de streaming conçue pour faciliter l'accès à des contenus éducatifs variés et de qualité. 
+          Notre objectif est de rendre l'apprentissage accessible et engageant pour tous. 
+          Explorez nos différentes catégories de vidéos pour enrichir vos connaissances !
+        </p>
+      </div>
     </div>
   );
 }

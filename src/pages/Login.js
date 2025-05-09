@@ -1,18 +1,51 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-function Login() {
+function Login({ onLoginSuccess }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [success, setSuccess] = useState(false);
+  const [error, setError] = useState('');
+  const navigate = useNavigate();
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log ('Connexion réussie.', {email, password});
-    setSuccess(true);
-    /* Ajouter la logique de connexion */
-    setEmail('');
-    setPassword('');
+    setError('');
+
+    try {
+      const response = await fetch('http://localhost:5000/api/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+  console.log('Connexion réussie:', data);
+  onLoginSuccess({
+    username: data.username,
+    email: email,
+    userId: data.userId,
+    password: password,
+  });
+  setSuccess(true);
+  setEmail('');
+  setPassword('');
+  navigate('/'); // Home Page après connexion
+}
+else {
+        console.error('Erreur lors de la connexion:', data);
+        setError(data.message || 'Identifiants incorrects.');
+        setSuccess(false);
+      }
+    } catch (error) {
+      console.error('Erreur réseau:', error);
+      setError('Erreur de connexion au serveur.');
+      setSuccess(false);
+    }
   };
 
   return (
@@ -20,9 +53,9 @@ function Login() {
       <div className="row justify-content-center">
         <div className="col-md-6">
           <h2 className="mb-4 text-center text-muted">Se connecter</h2>
-          {success && (
-            <div className="alert alert-success text-center" role="alert">
-              Connexion réussie.
+          {error && (
+            <div className="alert alert-danger text-center" role="alert">
+              {error}
             </div>
           )}
           <form onSubmit={handleSubmit}>

@@ -1,23 +1,57 @@
-/* Créer son compte */
-
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react'; // Import useEffect
+import { Link, useNavigate } from 'react-router-dom';
 
 function CreateAccount() {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [success, setSuccess] = useState(false);
+  const [error, setError] = useState('');
+  const navigate = useNavigate();
 
-  const handleSubmit = (event) => {
+  useEffect(() => {
+    if (success) {
+      // Après 1.5 secondes (1500 millisecondes), rediriger vers la page de connexion
+      const timer = setTimeout(() => {
+        navigate('/login');
+      }, 1500);
+      // Nettoyer le timer si le composant est démonté avant la fin du délai
+      return () => clearTimeout(timer);
+    }
+  }, [success, navigate]); // Dépendances de l'useEffect
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    // Ici, tu ajouterais la logique pour envoyer les données du formulaire
-    console.log('Compte à créer:', { username, email, password });
-    setSuccess(true);
-    /* Réinitialiser le formulaire */
-    setUsername('');
-    setEmail('');
-    setPassword('');
+    setError('');
+
+    try {
+      const response = await fetch('http://localhost:5000/api/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ username, email, password }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        console.log('Inscription réussie:', data);
+        setSuccess(true);
+        setUsername('');
+        setEmail('');
+        setPassword('');
+        // La redirection se fait maintenant via l'useEffect
+      } else {
+        console.error('Erreur lors de l\'inscription:', data);
+        setError(data.message || 'Une erreur est survenue lors de l\'inscription.');
+        setSuccess(false);
+      }
+    } catch (error) {
+      console.error('Erreur réseau:', error);
+      setError('Erreur de connexion au serveur.');
+      setSuccess(false);
+    }
   };
 
   return (
@@ -27,7 +61,12 @@ function CreateAccount() {
           <h2 className="mb-4 text-center text-muted">S'inscrire</h2>
           {success && (
             <div className="alert alert-success text-center" role="alert">
-              Compte crée!
+              Compte créé!
+            </div>
+          )}
+          {error && (
+            <div className="alert alert-danger text-center" role="alert">
+              {error}
             </div>
           )}
           <form onSubmit={handleSubmit}>

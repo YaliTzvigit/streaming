@@ -7,13 +7,27 @@
 
 body {
   margin: 0;
-  font-family: "DM Sans", sans-serif;
+  font-family: "Outfit", sans-serif;
   background: #f0fff0;
+}
+
+.drop {
+  border-radius: 10px;
+   padding: 10px;
+   text-align: center;
+   background-color: rgb(223, 192, 22);
+}
+
+.videolink {
+  color: whitesmoke;
+  cursor: pointer;
 }
 
 /* navbar */
 
 .nav {
+  margin: auto;
+  border-radius: 10px;
   align-items: center;
   justify-content: space-around;
   display: flex;
@@ -24,6 +38,13 @@ body {
   z-index: 100;
   background-color: rgba(9, 146, 94, 0.943);
   color: whitesmoke;
+}
+
+#nameconnex {
+    text-transform: uppercase;
+    text-decoration: underline;
+    font-weight: 500;
+    cursor: pointer;
 }
 
 .logobrand {
@@ -147,6 +168,31 @@ body {
     color: whitesmoke;
     text-align: center;
     background-color: rgba(9, 146, 94, 0.943);
+}
+
+/* description */
+
+strong {
+  margin-top: 8px;
+   font-size: 1.7rem;
+   text-transform: uppercase;
+}
+
+.backfp {
+   border: 1px solid rgba(9, 146, 94, 0.943);
+   color: rgba(9, 146, 94, 0.943);
+   background: transparent;
+}
+
+
+.backfp:hover {
+    background: rgba(9, 146, 94, 0.943);
+    color: whitesmoke;
+    border: none;
+}
+
+.nberr, .errtxt, .badroute {
+   color: rgb(92, 65, 10);
 }
 
 /* createaccount page */
