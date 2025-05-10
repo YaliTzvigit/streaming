@@ -41,7 +41,7 @@ app.post('/api/login', (req, res) => {
   if (user) {
     res.status(200).json({ message: 'Connexion réussie!', userId: user.id, username: user.username });
   } else {
-    res.status(401).json({ message: 'Identifiants incorrects.' });
+    res.status(401).json({ message: 'Identifiants incorrects ou ce compte n\'existe pas encore.' });
   }
 });
 

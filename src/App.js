@@ -27,13 +27,13 @@ function App() {
   };
   return (
     <Router>
-      {/* New drop vid! */}
+      {/* New drop vid! 
       <div className='drop'>
          <p className='text'>
            Nouvelle vidéo! Regardez : &nbsp; 
             <Link to="/newdropvid" className='videolink'>L'IA appliqué au développement logiciel</Link>
          </p>
-      </div>
+      </div> */}
       <nav className="nav">
         <Link className="navbar-brand logobrand" to="/">EduStream</Link>
         <div className='navi'>

@@ -17,7 +17,7 @@ function SpaceUser({ user }) {
   if (!user) {
     return (
       <div className="container py-5 text-center">
-        <h2>Vous devez être connecté pour accéder à cette page.</h2>
+        <h2 className='requireconnect'>Vous devez être connecté pour accéder à cette page.</h2>
         <Link to="/login" className="btn btn-primary mt-3">Se connecter</Link>
       </div>
     );
@@ -50,7 +50,7 @@ function SpaceUser({ user }) {
           </div>
 
           <div className="text-center mt-5">
-            <button className="btn btn-danger" onClick={handleLogout}>
+            <button className="btndeco" onClick={handleLogout}>
               Déconnexion
             </button>
           </div>

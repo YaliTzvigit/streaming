@@ -170,6 +170,13 @@ body {
     background-color: rgba(9, 146, 94, 0.943);
 }
 
+.btndeco {
+   color: maroon;
+   text-decoration: underline;
+   border: transparent;
+   background: transparent;
+}
+
 /* description */
 
 strong {

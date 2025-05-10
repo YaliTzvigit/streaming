@@ -38,7 +38,7 @@ function Login({ onLoginSuccess }) {
 }
 else {
         console.error('Erreur lors de la connexion:', data);
-        setError(data.message || 'Identifiants incorrects.');
+        setError(data.message || 'Identifiants incorrects ou ce compte n\'existe pas encore.');
         setSuccess(false);
       }
     } catch (error) {
