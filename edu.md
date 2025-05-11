@@ -24,7 +24,7 @@ EduStream est une plateforme de vidéos à la demande dédiée à l'apprentissag
 
 ## Installation
 
-1.  Clonez le dépôt : `git clone `
+1.  Clonez le dépôt : `git clone https://github.com/YaliTzvigit/streaming `
 2.  Installez les dépendances : `npm install`
 3.  Lancez l'application : `npm start`
 
